@@ -1,0 +1,54 @@
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!--suppress MybatisGenerateCustomPluginInspection -->
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/wangyufei/.m2/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="useMapperCommentGenerator" value="true"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <!--实现自指定的接口-->
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <property name="caseSensitive" value="true"/>
+            <property name="forceAnnotation" value="false"/>
+            <property name="beginningDelimiter" value="`"/>
+            <property name="endingDelimiter" value="`"/>
+        </plugin>
+
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <!--生成Mapper.java-->
+            <property name="targetProject" value="/Users/wangyufei/IdeaProjects/mybatis-generator/mb-gen-mapper/src/main/java"/>
+            <property name="targetPackage" value="mapper"/>
+            <property name="mapperSuffix" value="Mapper"/>
+            <property name="fileName" value="${tableClass.shortClassName}${mapperSuffix}.java"/>
+            <!--根据表生成其他的信息文件-->
+            <property name="templatePath" value="generator/mapper.ftl"/>
+            <!--默认值是下面这个，可以不配置-->
+            <property name="templateFormatter" value="tk.mybatis.mapper.generator.formatter.FreemarkerTemplateFormatter"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/gp?useUnicode=true&amp;characterEncoding=utf-8"
+                        userId="root"
+                        password="root1234">
+            <property name="nullCatalogMeansCurrent" value="true" />
+        </jdbcConnection>
+
+        <!--生成Model.java-->
+        <javaModelGenerator targetPackage="model"
+                            targetProject="/Users/wangyufei/IdeaProjects/mybatis-generator/mb-gen-mapper/src/main/java"/>
+
+        <!--生成XML-->
+        <sqlMapGenerator targetPackage="xml"
+                         targetProject="/Users/wangyufei/IdeaProjects/mybatis-generator/mb-gen-mapper/src/main/java"/>
+
+        <table schema="gp" tableName="%">
+        </table>
+    </context>
+</generatorConfiguration>

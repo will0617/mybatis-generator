@@ -1,2 +1,3 @@
 # mybatis-generator
-mybatis基于通用Mapper代码自动生成器 
+mybatis代码生成器示例：
+1、基于官方的mybatis-generator的maven插件来生成代码
