@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry
+    <!--<classPathEntry
             location="/Users/wangyufei/.m2/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar"/>
-
+-->
     <context id="my" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="false"/>
@@ -14,31 +14,31 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/gp?useUnicode=true&amp;characterEncoding=utf-8"
-                        userId="root"
-                        password="root1234">
+                        connectionURL="jdbc:mysql://172.20.9.33:3306/tcrc_shmic?useUnicode=true&amp;characterEncoding=utf-8"
+                        userId="tcrc_shmic"
+                        password="tcrc_shmic">
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
         <javaModelGenerator targetPackage="com.wyf.entity"
-                            targetProject="/Users/wangyufei/IdeaProjects/mybatis-generator/mb-gen-public/src/main/java">
+                            targetProject="C:\Users\Administrator\mybatis-generator\mb-gen-public\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator
                 targetPackage="sql-xml"
-                         targetProject="/Users/wangyufei/IdeaProjects/mybatis-generator/mb-gen-public/src/main/java">
+                         targetProject="C:\Users\Administrator\mybatis-generator\mb-gen-public\src\main\java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator targetPackage="com.wyf.mapper"
-                             targetProject="/Users/wangyufei/IdeaProjects/mybatis-generator/mb-gen-public/src/main/java"
+                             targetProject="C:\Users\Administrator\mybatis-generator\mb-gen-public\src\main\java"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="gp" tableName="author"
+        <table tableName="apply_cloud_resources_order"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"/>
     </context>

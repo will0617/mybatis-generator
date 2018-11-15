@@ -4,8 +4,8 @@
 
 <!--suppress MybatisGenerateCustomPluginInspection -->
 <generatorConfiguration>
-    <classPathEntry
-            location="/Users/wangyufei/.m2/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar"/>
+<!--    <classPathEntry
+            location="/Users/wangyufei/.m2/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar"/>-->
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <property name="javaFileEncoding" value="UTF-8"/>

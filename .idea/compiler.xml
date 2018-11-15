@@ -6,11 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mb-gen-mapper" />
+        <module name="mb-gen-public" />
         <module name="mbgenmapper" />
         <module name="mbgenpublic" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="mb-gen-mapper" target="1.5" />
+      <module name="mb-gen-public" target="1.5" />
       <module name="mbgen" target="1.5" />
       <module name="mbgenmapper" target="1.5" />
       <module name="mbgenpublic" target="1.5" />
