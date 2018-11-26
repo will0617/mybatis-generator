@@ -1,5 +1,8 @@
 package com.wyf.examples.model;
 
+/**
+ * just for test
+ */
 public class MybatisGenTest {
     private Integer id;
 
