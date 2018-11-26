@@ -23,7 +23,7 @@
 
         <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
             <!--生成Mapper.java-->
-            <property name="targetProject" value="/Users/wangyufei/IdeaProjects/mybatis-generator/mb-gen-mapper/src/main/java"/>
+            <property name="targetProject" value="C:\Users\Administrator\mybatis-generator\mb-gen-mapper\src\main\java"/>
             <property name="targetPackage" value="mapper"/>
             <property name="mapperSuffix" value="Mapper"/>
             <property name="fileName" value="${tableClass.shortClassName}${mapperSuffix}.java"/>
@@ -34,7 +34,7 @@
         </plugin>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/gp?useUnicode=true&amp;characterEncoding=utf-8"
+                        connectionURL="jdbc:mysql://172.20.9.33:3306/tcrc_shmic?useUnicode=true&amp;characterEncoding=utf-8"
                         userId="root"
                         password="root1234">
             <property name="nullCatalogMeansCurrent" value="true" />
@@ -42,13 +42,13 @@
 
         <!--生成Model.java-->
         <javaModelGenerator targetPackage="model"
-                            targetProject="/Users/wangyufei/IdeaProjects/mybatis-generator/mb-gen-mapper/src/main/java"/>
+                            targetProject="C:\Users\Administrator\mybatis-generator\mb-gen-mapper\src\main\java"/>
 
         <!--生成XML-->
         <sqlMapGenerator targetPackage="xml"
-                         targetProject="/Users/wangyufei/IdeaProjects/mybatis-generator/mb-gen-mapper/src/main/java"/>
+                         targetProject="C:\Users\Administrator\mybatis-generator\mb-gen-mapper\src\main\java"/>
 
-        <table schema="gp" tableName="%">
+        <table tableName="order_info">
         </table>
     </context>
 </generatorConfiguration>

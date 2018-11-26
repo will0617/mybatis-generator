@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyf.mapper.MybatisGenTestMapper">
+  <resultMap id="BaseResultMap" type="com.wyf.entity.MybatisGenTest">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="test_tinyint_1" jdbcType="BIT" property="testTinyint1" />
+    <result column="test_tinyint_2" jdbcType="TINYINT" property="testTinyint2" />
+    <result column="test_tinyint_4" jdbcType="TINYINT" property="testTinyint4" />
+    <result column="test_tinyint_6" jdbcType="TINYINT" property="testTinyint6" />
+    <result column="test_tinyint_8" jdbcType="TINYINT" property="testTinyint8" />
+    <result column="test_tinyint_10" jdbcType="TINYINT" property="testTinyint10" />
+    <result column="test_tinyint_100" jdbcType="TINYINT" property="testTinyint100" />
+    <result column="test_tinyint_255" jdbcType="TINYINT" property="testTinyint255" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, test_tinyint_1, test_tinyint_2, test_tinyint_4, test_tinyint_6, test_tinyint_8, 
+    test_tinyint_10, test_tinyint_100, test_tinyint_255
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mybatis-gen-test
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mybatis-gen-test
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wyf.entity.MybatisGenTest">
+    insert into mybatis-gen-test (id, test_tinyint_1, test_tinyint_2, 
+      test_tinyint_4, test_tinyint_6, test_tinyint_8, 
+      test_tinyint_10, test_tinyint_100, test_tinyint_255
+      )
+    values (#{id,jdbcType=INTEGER}, #{testTinyint1,jdbcType=BIT}, #{testTinyint2,jdbcType=TINYINT}, 
+      #{testTinyint4,jdbcType=TINYINT}, #{testTinyint6,jdbcType=TINYINT}, #{testTinyint8,jdbcType=TINYINT}, 
+      #{testTinyint10,jdbcType=TINYINT}, #{testTinyint100,jdbcType=TINYINT}, #{testTinyint255,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wyf.entity.MybatisGenTest">
+    insert into mybatis-gen-test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="testTinyint1 != null">
+        test_tinyint_1,
+      </if>
+      <if test="testTinyint2 != null">
+        test_tinyint_2,
+      </if>
+      <if test="testTinyint4 != null">
+        test_tinyint_4,
+      </if>
+      <if test="testTinyint6 != null">
+        test_tinyint_6,
+      </if>
+      <if test="testTinyint8 != null">
+        test_tinyint_8,
+      </if>
+      <if test="testTinyint10 != null">
+        test_tinyint_10,
+      </if>
+      <if test="testTinyint100 != null">
+        test_tinyint_100,
+      </if>
+      <if test="testTinyint255 != null">
+        test_tinyint_255,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="testTinyint1 != null">
+        #{testTinyint1,jdbcType=BIT},
+      </if>
+      <if test="testTinyint2 != null">
+        #{testTinyint2,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint4 != null">
+        #{testTinyint4,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint6 != null">
+        #{testTinyint6,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint8 != null">
+        #{testTinyint8,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint10 != null">
+        #{testTinyint10,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint100 != null">
+        #{testTinyint100,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint255 != null">
+        #{testTinyint255,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wyf.entity.MybatisGenTest">
+    update mybatis-gen-test
+    <set>
+      <if test="testTinyint1 != null">
+        test_tinyint_1 = #{testTinyint1,jdbcType=BIT},
+      </if>
+      <if test="testTinyint2 != null">
+        test_tinyint_2 = #{testTinyint2,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint4 != null">
+        test_tinyint_4 = #{testTinyint4,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint6 != null">
+        test_tinyint_6 = #{testTinyint6,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint8 != null">
+        test_tinyint_8 = #{testTinyint8,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint10 != null">
+        test_tinyint_10 = #{testTinyint10,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint100 != null">
+        test_tinyint_100 = #{testTinyint100,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint255 != null">
+        test_tinyint_255 = #{testTinyint255,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wyf.entity.MybatisGenTest">
+    update mybatis-gen-test
+    set test_tinyint_1 = #{testTinyint1,jdbcType=BIT},
+      test_tinyint_2 = #{testTinyint2,jdbcType=TINYINT},
+      test_tinyint_4 = #{testTinyint4,jdbcType=TINYINT},
+      test_tinyint_6 = #{testTinyint6,jdbcType=TINYINT},
+      test_tinyint_8 = #{testTinyint8,jdbcType=TINYINT},
+      test_tinyint_10 = #{testTinyint10,jdbcType=TINYINT},
+      test_tinyint_100 = #{testTinyint100,jdbcType=TINYINT},
+      test_tinyint_255 = #{testTinyint255,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wyf.entity.MybatisGenTest">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="test_tinyint_1" jdbcType="BIT" property="testTinyint1" />
+    <result column="test_tinyint_2" jdbcType="TINYINT" property="testTinyint2" />
+    <result column="test_tinyint_4" jdbcType="TINYINT" property="testTinyint4" />
+    <result column="test_tinyint_6" jdbcType="TINYINT" property="testTinyint6" />
+    <result column="test_tinyint_8" jdbcType="TINYINT" property="testTinyint8" />
+    <result column="test_tinyint_10" jdbcType="TINYINT" property="testTinyint10" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, test_tinyint_1, test_tinyint_2, test_tinyint_4, test_tinyint_6, test_tinyint_8, 
+    test_tinyint_10
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mybatis-gen-test
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mybatis-gen-test
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wyf.entity.MybatisGenTest">
+    insert into mybatis-gen-test (id, test_tinyint_1, test_tinyint_2, 
+      test_tinyint_4, test_tinyint_6, test_tinyint_8, 
+      test_tinyint_10)
+    values (#{id,jdbcType=INTEGER}, #{testTinyint1,jdbcType=BIT}, #{testTinyint2,jdbcType=TINYINT}, 
+      #{testTinyint4,jdbcType=TINYINT}, #{testTinyint6,jdbcType=TINYINT}, #{testTinyint8,jdbcType=TINYINT}, 
+      #{testTinyint10,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wyf.entity.MybatisGenTest">
+    insert into mybatis-gen-test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="testTinyint1 != null">
+        test_tinyint_1,
+      </if>
+      <if test="testTinyint2 != null">
+        test_tinyint_2,
+      </if>
+      <if test="testTinyint4 != null">
+        test_tinyint_4,
+      </if>
+      <if test="testTinyint6 != null">
+        test_tinyint_6,
+      </if>
+      <if test="testTinyint8 != null">
+        test_tinyint_8,
+      </if>
+      <if test="testTinyint10 != null">
+        test_tinyint_10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="testTinyint1 != null">
+        #{testTinyint1,jdbcType=BIT},
+      </if>
+      <if test="testTinyint2 != null">
+        #{testTinyint2,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint4 != null">
+        #{testTinyint4,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint6 != null">
+        #{testTinyint6,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint8 != null">
+        #{testTinyint8,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint10 != null">
+        #{testTinyint10,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wyf.entity.MybatisGenTest">
+    update mybatis-gen-test
+    <set>
+      <if test="testTinyint1 != null">
+        test_tinyint_1 = #{testTinyint1,jdbcType=BIT},
+      </if>
+      <if test="testTinyint2 != null">
+        test_tinyint_2 = #{testTinyint2,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint4 != null">
+        test_tinyint_4 = #{testTinyint4,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint6 != null">
+        test_tinyint_6 = #{testTinyint6,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint8 != null">
+        test_tinyint_8 = #{testTinyint8,jdbcType=TINYINT},
+      </if>
+      <if test="testTinyint10 != null">
+        test_tinyint_10 = #{testTinyint10,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wyf.entity.MybatisGenTest">
+    update mybatis-gen-test
+    set test_tinyint_1 = #{testTinyint1,jdbcType=BIT},
+      test_tinyint_2 = #{testTinyint2,jdbcType=TINYINT},
+      test_tinyint_4 = #{testTinyint4,jdbcType=TINYINT},
+      test_tinyint_6 = #{testTinyint6,jdbcType=TINYINT},
+      test_tinyint_8 = #{testTinyint8,jdbcType=TINYINT},
+      test_tinyint_10 = #{testTinyint10,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

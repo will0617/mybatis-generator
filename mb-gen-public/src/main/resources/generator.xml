@@ -4,19 +4,23 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <!--<classPathEntry
-            location="/Users/wangyufei/.m2/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar"/>
--->
     <context id="my" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="false"/>
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
 
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://172.20.9.33:3306/tcrc_shmic?useUnicode=true&amp;characterEncoding=utf-8"
                         userId="tcrc_shmic"
                         password="tcrc_shmic">
+            <property name="nullCatalogMeansCurrent" value="true" />
+        </jdbcConnection>-->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/gp?useUnicode=true&amp;characterEncoding=utf-8"
+                        userId="root"
+                        password="root">
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
@@ -38,8 +42,9 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="apply_cloud_resources_order"
+        <table tableName="mybatis-gen-test"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false"/>
+               enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
     </context>
 </generatorConfiguration>

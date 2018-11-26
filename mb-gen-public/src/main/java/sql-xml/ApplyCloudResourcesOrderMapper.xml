@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wyf.mapper.ApplyCloudResourcesOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.wyf.entity.ApplyCloudResourcesOrder" >
+    <id column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="client_id" property="clientId" jdbcType="VARCHAR" />
+    <result column="resource_name" property="resourceName" jdbcType="VARCHAR" />
+    <result column="product_type" property="productType" jdbcType="VARCHAR" />
+    <result column="order_type" property="orderType" jdbcType="VARCHAR" />
+    <result column="apply_time" property="applyTime" jdbcType="TIMESTAMP" />
+    <result column="order_often" property="orderOften" jdbcType="VARCHAR" />
+    <result column="configuration_cost" property="configurationCost" jdbcType="DECIMAL" />
+    <result column="apply_cause" property="applyCause" jdbcType="VARCHAR" />
+    <result column="operate_system" property="operateSystem" jdbcType="VARCHAR" />
+    <result column="resource_count" property="resourceCount" jdbcType="INTEGER" />
+    <result column="resource_cpu" property="resourceCpu" jdbcType="INTEGER" />
+    <result column="resource_memory" property="resourceMemory" jdbcType="INTEGER" />
+    <result column="data_set" property="dataSet" jdbcType="VARCHAR" />
+    <result column="network_count" property="networkCount" jdbcType="INTEGER" />
+    <result column="network_rate_type" property="networkRateType" jdbcType="INTEGER" />
+    <result column="bandwidth" property="bandwidth" jdbcType="INTEGER" />
+    <result column="bussiness_id" property="bussinessId" jdbcType="VARCHAR" />
+    <result column="expire_time" property="expireTime" jdbcType="TIMESTAMP" />
+    <result column="order_approve_status" property="orderApproveStatus" jdbcType="VARCHAR" />
+    <result column="approve_admin" property="approveAdmin" jdbcType="VARCHAR" />
+    <result column="approve_time" property="approveTime" jdbcType="TIMESTAMP" />
+    <result column="deploy_time" property="deployTime" jdbcType="TIMESTAMP" />
+    <result column="approve_opinion" property="approveOpinion" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="send_status" property="sendStatus" jdbcType="CHAR" />
+    <result column="admin_flag" property="adminFlag" jdbcType="VARCHAR" />
+    <result column="virtual_type" property="virtualType" jdbcType="VARCHAR" />
+    <result column="service_id" property="serviceId" jdbcType="VARCHAR" />
+    <result column="service_publish_id" property="servicePublishId" jdbcType="VARCHAR" />
+    <result column="del_order_vm_user_name" property="delOrderVmUserName" jdbcType="VARCHAR" />
+    <result column="del_order_vm_applytime" property="delOrderVmApplytime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_id, user_id, client_id, resource_name, product_type, order_type, apply_time, 
+    order_often, configuration_cost, apply_cause, operate_system, resource_count, resource_cpu, 
+    resource_memory, data_set, network_count, network_rate_type, bandwidth, bussiness_id, 
+    expire_time, order_approve_status, approve_admin, approve_time, deploy_time, approve_opinion, 
+    del_flag, update_time, send_status, admin_flag, virtual_type, service_id, service_publish_id, 
+    del_order_vm_user_name, del_order_vm_applytime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from apply_cloud_resources_order
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from apply_cloud_resources_order
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wyf.entity.ApplyCloudResourcesOrder" >
+    insert into apply_cloud_resources_order (order_id, user_id, client_id, 
+      resource_name, product_type, order_type, 
+      apply_time, order_often, configuration_cost, 
+      apply_cause, operate_system, resource_count, 
+      resource_cpu, resource_memory, data_set, 
+      network_count, network_rate_type, bandwidth, 
+      bussiness_id, expire_time, order_approve_status, 
+      approve_admin, approve_time, deploy_time, 
+      approve_opinion, del_flag, update_time, 
+      send_status, admin_flag, virtual_type, 
+      service_id, service_publish_id, del_order_vm_user_name, 
+      del_order_vm_applytime)
+    values (#{orderId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{clientId,jdbcType=VARCHAR}, 
+      #{resourceName,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, #{orderType,jdbcType=VARCHAR}, 
+      #{applyTime,jdbcType=TIMESTAMP}, #{orderOften,jdbcType=VARCHAR}, #{configurationCost,jdbcType=DECIMAL}, 
+      #{applyCause,jdbcType=VARCHAR}, #{operateSystem,jdbcType=VARCHAR}, #{resourceCount,jdbcType=INTEGER}, 
+      #{resourceCpu,jdbcType=INTEGER}, #{resourceMemory,jdbcType=INTEGER}, #{dataSet,jdbcType=VARCHAR}, 
+      #{networkCount,jdbcType=INTEGER}, #{networkRateType,jdbcType=INTEGER}, #{bandwidth,jdbcType=INTEGER}, 
+      #{bussinessId,jdbcType=VARCHAR}, #{expireTime,jdbcType=TIMESTAMP}, #{orderApproveStatus,jdbcType=VARCHAR}, 
+      #{approveAdmin,jdbcType=VARCHAR}, #{approveTime,jdbcType=TIMESTAMP}, #{deployTime,jdbcType=TIMESTAMP}, 
+      #{approveOpinion,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{sendStatus,jdbcType=CHAR}, #{adminFlag,jdbcType=VARCHAR}, #{virtualType,jdbcType=VARCHAR}, 
+      #{serviceId,jdbcType=VARCHAR}, #{servicePublishId,jdbcType=VARCHAR}, #{delOrderVmUserName,jdbcType=VARCHAR}, 
+      #{delOrderVmApplytime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wyf.entity.ApplyCloudResourcesOrder" >
+    insert into apply_cloud_resources_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="clientId != null" >
+        client_id,
+      </if>
+      <if test="resourceName != null" >
+        resource_name,
+      </if>
+      <if test="productType != null" >
+        product_type,
+      </if>
+      <if test="orderType != null" >
+        order_type,
+      </if>
+      <if test="applyTime != null" >
+        apply_time,
+      </if>
+      <if test="orderOften != null" >
+        order_often,
+      </if>
+      <if test="configurationCost != null" >
+        configuration_cost,
+      </if>
+      <if test="applyCause != null" >
+        apply_cause,
+      </if>
+      <if test="operateSystem != null" >
+        operate_system,
+      </if>
+      <if test="resourceCount != null" >
+        resource_count,
+      </if>
+      <if test="resourceCpu != null" >
+        resource_cpu,
+      </if>
+      <if test="resourceMemory != null" >
+        resource_memory,
+      </if>
+      <if test="dataSet != null" >
+        data_set,
+      </if>
+      <if test="networkCount != null" >
+        network_count,
+      </if>
+      <if test="networkRateType != null" >
+        network_rate_type,
+      </if>
+      <if test="bandwidth != null" >
+        bandwidth,
+      </if>
+      <if test="bussinessId != null" >
+        bussiness_id,
+      </if>
+      <if test="expireTime != null" >
+        expire_time,
+      </if>
+      <if test="orderApproveStatus != null" >
+        order_approve_status,
+      </if>
+      <if test="approveAdmin != null" >
+        approve_admin,
+      </if>
+      <if test="approveTime != null" >
+        approve_time,
+      </if>
+      <if test="deployTime != null" >
+        deploy_time,
+      </if>
+      <if test="approveOpinion != null" >
+        approve_opinion,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="sendStatus != null" >
+        send_status,
+      </if>
+      <if test="adminFlag != null" >
+        admin_flag,
+      </if>
+      <if test="virtualType != null" >
+        virtual_type,
+      </if>
+      <if test="serviceId != null" >
+        service_id,
+      </if>
+      <if test="servicePublishId != null" >
+        service_publish_id,
+      </if>
+      <if test="delOrderVmUserName != null" >
+        del_order_vm_user_name,
+      </if>
+      <if test="delOrderVmApplytime != null" >
+        del_order_vm_applytime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="clientId != null" >
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null" >
+        #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null" >
+        #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderOften != null" >
+        #{orderOften,jdbcType=VARCHAR},
+      </if>
+      <if test="configurationCost != null" >
+        #{configurationCost,jdbcType=DECIMAL},
+      </if>
+      <if test="applyCause != null" >
+        #{applyCause,jdbcType=VARCHAR},
+      </if>
+      <if test="operateSystem != null" >
+        #{operateSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceCount != null" >
+        #{resourceCount,jdbcType=INTEGER},
+      </if>
+      <if test="resourceCpu != null" >
+        #{resourceCpu,jdbcType=INTEGER},
+      </if>
+      <if test="resourceMemory != null" >
+        #{resourceMemory,jdbcType=INTEGER},
+      </if>
+      <if test="dataSet != null" >
+        #{dataSet,jdbcType=VARCHAR},
+      </if>
+      <if test="networkCount != null" >
+        #{networkCount,jdbcType=INTEGER},
+      </if>
+      <if test="networkRateType != null" >
+        #{networkRateType,jdbcType=INTEGER},
+      </if>
+      <if test="bandwidth != null" >
+        #{bandwidth,jdbcType=INTEGER},
+      </if>
+      <if test="bussinessId != null" >
+        #{bussinessId,jdbcType=VARCHAR},
+      </if>
+      <if test="expireTime != null" >
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderApproveStatus != null" >
+        #{orderApproveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="approveAdmin != null" >
+        #{approveAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTime != null" >
+        #{approveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deployTime != null" >
+        #{deployTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveOpinion != null" >
+        #{approveOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendStatus != null" >
+        #{sendStatus,jdbcType=CHAR},
+      </if>
+      <if test="adminFlag != null" >
+        #{adminFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="virtualType != null" >
+        #{virtualType,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceId != null" >
+        #{serviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePublishId != null" >
+        #{servicePublishId,jdbcType=VARCHAR},
+      </if>
+      <if test="delOrderVmUserName != null" >
+        #{delOrderVmUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="delOrderVmApplytime != null" >
+        #{delOrderVmApplytime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wyf.entity.ApplyCloudResourcesOrder" >
+    update apply_cloud_resources_order
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="clientId != null" >
+        client_id = #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        resource_name = #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null" >
+        product_type = #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null" >
+        order_type = #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderOften != null" >
+        order_often = #{orderOften,jdbcType=VARCHAR},
+      </if>
+      <if test="configurationCost != null" >
+        configuration_cost = #{configurationCost,jdbcType=DECIMAL},
+      </if>
+      <if test="applyCause != null" >
+        apply_cause = #{applyCause,jdbcType=VARCHAR},
+      </if>
+      <if test="operateSystem != null" >
+        operate_system = #{operateSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceCount != null" >
+        resource_count = #{resourceCount,jdbcType=INTEGER},
+      </if>
+      <if test="resourceCpu != null" >
+        resource_cpu = #{resourceCpu,jdbcType=INTEGER},
+      </if>
+      <if test="resourceMemory != null" >
+        resource_memory = #{resourceMemory,jdbcType=INTEGER},
+      </if>
+      <if test="dataSet != null" >
+        data_set = #{dataSet,jdbcType=VARCHAR},
+      </if>
+      <if test="networkCount != null" >
+        network_count = #{networkCount,jdbcType=INTEGER},
+      </if>
+      <if test="networkRateType != null" >
+        network_rate_type = #{networkRateType,jdbcType=INTEGER},
+      </if>
+      <if test="bandwidth != null" >
+        bandwidth = #{bandwidth,jdbcType=INTEGER},
+      </if>
+      <if test="bussinessId != null" >
+        bussiness_id = #{bussinessId,jdbcType=VARCHAR},
+      </if>
+      <if test="expireTime != null" >
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderApproveStatus != null" >
+        order_approve_status = #{orderApproveStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="approveAdmin != null" >
+        approve_admin = #{approveAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="approveTime != null" >
+        approve_time = #{approveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deployTime != null" >
+        deploy_time = #{deployTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveOpinion != null" >
+        approve_opinion = #{approveOpinion,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendStatus != null" >
+        send_status = #{sendStatus,jdbcType=CHAR},
+      </if>
+      <if test="adminFlag != null" >
+        admin_flag = #{adminFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="virtualType != null" >
+        virtual_type = #{virtualType,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceId != null" >
+        service_id = #{serviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePublishId != null" >
+        service_publish_id = #{servicePublishId,jdbcType=VARCHAR},
+      </if>
+      <if test="delOrderVmUserName != null" >
+        del_order_vm_user_name = #{delOrderVmUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="delOrderVmApplytime != null" >
+        del_order_vm_applytime = #{delOrderVmApplytime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wyf.entity.ApplyCloudResourcesOrder" >
+    update apply_cloud_resources_order
+    set user_id = #{userId,jdbcType=VARCHAR},
+      client_id = #{clientId,jdbcType=VARCHAR},
+      resource_name = #{resourceName,jdbcType=VARCHAR},
+      product_type = #{productType,jdbcType=VARCHAR},
+      order_type = #{orderType,jdbcType=VARCHAR},
+      apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      order_often = #{orderOften,jdbcType=VARCHAR},
+      configuration_cost = #{configurationCost,jdbcType=DECIMAL},
+      apply_cause = #{applyCause,jdbcType=VARCHAR},
+      operate_system = #{operateSystem,jdbcType=VARCHAR},
+      resource_count = #{resourceCount,jdbcType=INTEGER},
+      resource_cpu = #{resourceCpu,jdbcType=INTEGER},
+      resource_memory = #{resourceMemory,jdbcType=INTEGER},
+      data_set = #{dataSet,jdbcType=VARCHAR},
+      network_count = #{networkCount,jdbcType=INTEGER},
+      network_rate_type = #{networkRateType,jdbcType=INTEGER},
+      bandwidth = #{bandwidth,jdbcType=INTEGER},
+      bussiness_id = #{bussinessId,jdbcType=VARCHAR},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      order_approve_status = #{orderApproveStatus,jdbcType=VARCHAR},
+      approve_admin = #{approveAdmin,jdbcType=VARCHAR},
+      approve_time = #{approveTime,jdbcType=TIMESTAMP},
+      deploy_time = #{deployTime,jdbcType=TIMESTAMP},
+      approve_opinion = #{approveOpinion,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      send_status = #{sendStatus,jdbcType=CHAR},
+      admin_flag = #{adminFlag,jdbcType=VARCHAR},
+      virtual_type = #{virtualType,jdbcType=VARCHAR},
+      service_id = #{serviceId,jdbcType=VARCHAR},
+      service_publish_id = #{servicePublishId,jdbcType=VARCHAR},
+      del_order_vm_user_name = #{delOrderVmUserName,jdbcType=VARCHAR},
+      del_order_vm_applytime = #{delOrderVmApplytime,jdbcType=VARCHAR}
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </update>
+</mapper>

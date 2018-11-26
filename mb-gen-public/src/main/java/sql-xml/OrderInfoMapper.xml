@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wyf.mapper.OrderInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.wyf.entity.OrderInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="order_type" property="orderType" jdbcType="VARCHAR" />
+    <result column="product_type" property="productType" jdbcType="VARCHAR" />
+    <result column="apply_user_id" property="applyUserId" jdbcType="VARCHAR" />
+    <result column="apply_user_name" property="applyUserName" jdbcType="VARCHAR" />
+    <result column="tenancy" property="tenancy" jdbcType="TINYINT" />
+    <result column="tenancy_unit" property="tenancyUnit" jdbcType="BIT" />
+    <result column="order_fee" property="orderFee" jdbcType="DOUBLE" />
+    <result column="apply_date" property="applyDate" jdbcType="TIMESTAMP" />
+    <result column="business_id" property="businessId" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="BIT" />
+    <result column="approve_time" property="approveTime" jdbcType="TIMESTAMP" />
+    <result column="effective_time" property="effectiveTime" jdbcType="TIMESTAMP" />
+    <result column="expire_time" property="expireTime" jdbcType="TIMESTAMP" />
+    <result column="apply_reason" property="applyReason" jdbcType="VARCHAR" />
+    <result column="deploy_able" property="deployAble" jdbcType="BIT" />
+    <result column="undeploy_reason" property="undeployReason" jdbcType="VARCHAR" />
+    <result column="chargeback_time" property="chargebackTime" jdbcType="TIMESTAMP" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="fail_time" property="failTime" jdbcType="TIMESTAMP" />
+    <result column="undeploy_time" property="undeployTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="success_time" property="successTime" jdbcType="TIMESTAMP" />
+    <result column="del_vm_resource_id" property="delVmResourceId" jdbcType="VARCHAR" />
+    <result column="del_vm_id" property="delVmId" jdbcType="VARCHAR" />
+    <result column="apply_client_id" property="applyClientId" jdbcType="VARCHAR" />
+    <result column="apply_client_name" property="applyClientName" jdbcType="VARCHAR" />
+    <result column="service_name" property="serviceName" jdbcType="VARCHAR" />
+    <result column="del_vm_name" property="delVmName" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.wyf.entity.OrderInfo" extends="BaseResultMap" >
+    <result column="create_info" property="createInfo" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, order_id, order_type, product_type, apply_user_id, apply_user_name, tenancy, 
+    tenancy_unit, order_fee, apply_date, business_id, order_status, approve_time, effective_time, 
+    expire_time, apply_reason, deploy_able, undeploy_reason, chargeback_time, start_time, 
+    fail_time, undeploy_time, create_time, success_time, del_vm_resource_id, del_vm_id, 
+    apply_client_id, apply_client_name, service_name, del_vm_name, update_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    create_info
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from order_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from order_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wyf.entity.OrderInfo" >
+    insert into order_info (id, order_id, order_type, 
+      product_type, apply_user_id, apply_user_name, 
+      tenancy, tenancy_unit, order_fee, 
+      apply_date, business_id, order_status, 
+      approve_time, effective_time, expire_time, 
+      apply_reason, deploy_able, undeploy_reason, 
+      chargeback_time, start_time, fail_time, 
+      undeploy_time, create_time, success_time, 
+      del_vm_resource_id, del_vm_id, apply_client_id, 
+      apply_client_name, service_name, del_vm_name, 
+      update_time, create_info)
+    values (#{id,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR}, #{orderType,jdbcType=VARCHAR}, 
+      #{productType,jdbcType=VARCHAR}, #{applyUserId,jdbcType=VARCHAR}, #{applyUserName,jdbcType=VARCHAR}, 
+      #{tenancy,jdbcType=TINYINT}, #{tenancyUnit,jdbcType=BIT}, #{orderFee,jdbcType=DOUBLE}, 
+      #{applyDate,jdbcType=TIMESTAMP}, #{businessId,jdbcType=VARCHAR}, #{orderStatus,jdbcType=BIT}, 
+      #{approveTime,jdbcType=TIMESTAMP}, #{effectiveTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP}, 
+      #{applyReason,jdbcType=VARCHAR}, #{deployAble,jdbcType=BIT}, #{undeployReason,jdbcType=VARCHAR}, 
+      #{chargebackTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{failTime,jdbcType=TIMESTAMP}, 
+      #{undeployTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{successTime,jdbcType=TIMESTAMP}, 
+      #{delVmResourceId,jdbcType=VARCHAR}, #{delVmId,jdbcType=VARCHAR}, #{applyClientId,jdbcType=VARCHAR}, 
+      #{applyClientName,jdbcType=VARCHAR}, #{serviceName,jdbcType=VARCHAR}, #{delVmName,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createInfo,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wyf.entity.OrderInfo" >
+    insert into order_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderType != null" >
+        order_type,
+      </if>
+      <if test="productType != null" >
+        product_type,
+      </if>
+      <if test="applyUserId != null" >
+        apply_user_id,
+      </if>
+      <if test="applyUserName != null" >
+        apply_user_name,
+      </if>
+      <if test="tenancy != null" >
+        tenancy,
+      </if>
+      <if test="tenancyUnit != null" >
+        tenancy_unit,
+      </if>
+      <if test="orderFee != null" >
+        order_fee,
+      </if>
+      <if test="applyDate != null" >
+        apply_date,
+      </if>
+      <if test="businessId != null" >
+        business_id,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="approveTime != null" >
+        approve_time,
+      </if>
+      <if test="effectiveTime != null" >
+        effective_time,
+      </if>
+      <if test="expireTime != null" >
+        expire_time,
+      </if>
+      <if test="applyReason != null" >
+        apply_reason,
+      </if>
+      <if test="deployAble != null" >
+        deploy_able,
+      </if>
+      <if test="undeployReason != null" >
+        undeploy_reason,
+      </if>
+      <if test="chargebackTime != null" >
+        chargeback_time,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="failTime != null" >
+        fail_time,
+      </if>
+      <if test="undeployTime != null" >
+        undeploy_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="successTime != null" >
+        success_time,
+      </if>
+      <if test="delVmResourceId != null" >
+        del_vm_resource_id,
+      </if>
+      <if test="delVmId != null" >
+        del_vm_id,
+      </if>
+      <if test="applyClientId != null" >
+        apply_client_id,
+      </if>
+      <if test="applyClientName != null" >
+        apply_client_name,
+      </if>
+      <if test="serviceName != null" >
+        service_name,
+      </if>
+      <if test="delVmName != null" >
+        del_vm_name,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createInfo != null" >
+        create_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null" >
+        #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null" >
+        #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserId != null" >
+        #{applyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserName != null" >
+        #{applyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="tenancy != null" >
+        #{tenancy,jdbcType=TINYINT},
+      </if>
+      <if test="tenancyUnit != null" >
+        #{tenancyUnit,jdbcType=BIT},
+      </if>
+      <if test="orderFee != null" >
+        #{orderFee,jdbcType=DOUBLE},
+      </if>
+      <if test="applyDate != null" >
+        #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessId != null" >
+        #{businessId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=BIT},
+      </if>
+      <if test="approveTime != null" >
+        #{approveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectiveTime != null" >
+        #{effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null" >
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyReason != null" >
+        #{applyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="deployAble != null" >
+        #{deployAble,jdbcType=BIT},
+      </if>
+      <if test="undeployReason != null" >
+        #{undeployReason,jdbcType=VARCHAR},
+      </if>
+      <if test="chargebackTime != null" >
+        #{chargebackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="failTime != null" >
+        #{failTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="undeployTime != null" >
+        #{undeployTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="successTime != null" >
+        #{successTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delVmResourceId != null" >
+        #{delVmResourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="delVmId != null" >
+        #{delVmId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyClientId != null" >
+        #{applyClientId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyClientName != null" >
+        #{applyClientName,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceName != null" >
+        #{serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="delVmName != null" >
+        #{delVmName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createInfo != null" >
+        #{createInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wyf.entity.OrderInfo" >
+    update order_info
+    <set >
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null" >
+        order_type = #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null" >
+        product_type = #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserId != null" >
+        apply_user_id = #{applyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserName != null" >
+        apply_user_name = #{applyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="tenancy != null" >
+        tenancy = #{tenancy,jdbcType=TINYINT},
+      </if>
+      <if test="tenancyUnit != null" >
+        tenancy_unit = #{tenancyUnit,jdbcType=BIT},
+      </if>
+      <if test="orderFee != null" >
+        order_fee = #{orderFee,jdbcType=DOUBLE},
+      </if>
+      <if test="applyDate != null" >
+        apply_date = #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessId != null" >
+        business_id = #{businessId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=BIT},
+      </if>
+      <if test="approveTime != null" >
+        approve_time = #{approveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectiveTime != null" >
+        effective_time = #{effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null" >
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyReason != null" >
+        apply_reason = #{applyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="deployAble != null" >
+        deploy_able = #{deployAble,jdbcType=BIT},
+      </if>
+      <if test="undeployReason != null" >
+        undeploy_reason = #{undeployReason,jdbcType=VARCHAR},
+      </if>
+      <if test="chargebackTime != null" >
+        chargeback_time = #{chargebackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="failTime != null" >
+        fail_time = #{failTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="undeployTime != null" >
+        undeploy_time = #{undeployTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="successTime != null" >
+        success_time = #{successTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delVmResourceId != null" >
+        del_vm_resource_id = #{delVmResourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="delVmId != null" >
+        del_vm_id = #{delVmId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyClientId != null" >
+        apply_client_id = #{applyClientId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyClientName != null" >
+        apply_client_name = #{applyClientName,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceName != null" >
+        service_name = #{serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="delVmName != null" >
+        del_vm_name = #{delVmName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createInfo != null" >
+        create_info = #{createInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wyf.entity.OrderInfo" >
+    update order_info
+    set order_id = #{orderId,jdbcType=VARCHAR},
+      order_type = #{orderType,jdbcType=VARCHAR},
+      product_type = #{productType,jdbcType=VARCHAR},
+      apply_user_id = #{applyUserId,jdbcType=VARCHAR},
+      apply_user_name = #{applyUserName,jdbcType=VARCHAR},
+      tenancy = #{tenancy,jdbcType=TINYINT},
+      tenancy_unit = #{tenancyUnit,jdbcType=BIT},
+      order_fee = #{orderFee,jdbcType=DOUBLE},
+      apply_date = #{applyDate,jdbcType=TIMESTAMP},
+      business_id = #{businessId,jdbcType=VARCHAR},
+      order_status = #{orderStatus,jdbcType=BIT},
+      approve_time = #{approveTime,jdbcType=TIMESTAMP},
+      effective_time = #{effectiveTime,jdbcType=TIMESTAMP},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      apply_reason = #{applyReason,jdbcType=VARCHAR},
+      deploy_able = #{deployAble,jdbcType=BIT},
+      undeploy_reason = #{undeployReason,jdbcType=VARCHAR},
+      chargeback_time = #{chargebackTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      fail_time = #{failTime,jdbcType=TIMESTAMP},
+      undeploy_time = #{undeployTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      success_time = #{successTime,jdbcType=TIMESTAMP},
+      del_vm_resource_id = #{delVmResourceId,jdbcType=VARCHAR},
+      del_vm_id = #{delVmId,jdbcType=VARCHAR},
+      apply_client_id = #{applyClientId,jdbcType=VARCHAR},
+      apply_client_name = #{applyClientName,jdbcType=VARCHAR},
+      service_name = #{serviceName,jdbcType=VARCHAR},
+      del_vm_name = #{delVmName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_info = #{createInfo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wyf.entity.OrderInfo" >
+    update order_info
+    set order_id = #{orderId,jdbcType=VARCHAR},
+      order_type = #{orderType,jdbcType=VARCHAR},
+      product_type = #{productType,jdbcType=VARCHAR},
+      apply_user_id = #{applyUserId,jdbcType=VARCHAR},
+      apply_user_name = #{applyUserName,jdbcType=VARCHAR},
+      tenancy = #{tenancy,jdbcType=TINYINT},
+      tenancy_unit = #{tenancyUnit,jdbcType=BIT},
+      order_fee = #{orderFee,jdbcType=DOUBLE},
+      apply_date = #{applyDate,jdbcType=TIMESTAMP},
+      business_id = #{businessId,jdbcType=VARCHAR},
+      order_status = #{orderStatus,jdbcType=BIT},
+      approve_time = #{approveTime,jdbcType=TIMESTAMP},
+      effective_time = #{effectiveTime,jdbcType=TIMESTAMP},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      apply_reason = #{applyReason,jdbcType=VARCHAR},
+      deploy_able = #{deployAble,jdbcType=BIT},
+      undeploy_reason = #{undeployReason,jdbcType=VARCHAR},
+      chargeback_time = #{chargebackTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      fail_time = #{failTime,jdbcType=TIMESTAMP},
+      undeploy_time = #{undeployTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      success_time = #{successTime,jdbcType=TIMESTAMP},
+      del_vm_resource_id = #{delVmResourceId,jdbcType=VARCHAR},
+      del_vm_id = #{delVmId,jdbcType=VARCHAR},
+      apply_client_id = #{applyClientId,jdbcType=VARCHAR},
+      apply_client_name = #{applyClientName,jdbcType=VARCHAR},
+      service_name = #{serviceName,jdbcType=VARCHAR},
+      del_vm_name = #{delVmName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

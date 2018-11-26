@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xml.OrderInfoMapper">
+  <resultMap id="BaseResultMap" type="model.OrderInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="order_type" jdbcType="VARCHAR" property="orderType" />
+    <result column="product_type" jdbcType="VARCHAR" property="productType" />
+    <result column="apply_user_id" jdbcType="VARCHAR" property="applyUserId" />
+    <result column="apply_user_name" jdbcType="VARCHAR" property="applyUserName" />
+    <result column="tenancy" jdbcType="TINYINT" property="tenancy" />
+    <result column="tenancy_unit" jdbcType="BIT" property="tenancyUnit" />
+    <result column="order_fee" jdbcType="DOUBLE" property="orderFee" />
+    <result column="apply_date" jdbcType="TIMESTAMP" property="applyDate" />
+    <result column="business_id" jdbcType="VARCHAR" property="businessId" />
+    <result column="order_status" jdbcType="BIT" property="orderStatus" />
+    <result column="approve_time" jdbcType="TIMESTAMP" property="approveTime" />
+    <result column="effective_time" jdbcType="TIMESTAMP" property="effectiveTime" />
+    <result column="expire_time" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="apply_reason" jdbcType="VARCHAR" property="applyReason" />
+    <result column="deploy_able" jdbcType="BIT" property="deployAble" />
+    <result column="undeploy_reason" jdbcType="VARCHAR" property="undeployReason" />
+    <result column="chargeback_time" jdbcType="TIMESTAMP" property="chargebackTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="fail_time" jdbcType="TIMESTAMP" property="failTime" />
+    <result column="undeploy_time" jdbcType="TIMESTAMP" property="undeployTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="success_time" jdbcType="TIMESTAMP" property="successTime" />
+    <result column="del_vm_resource_id" jdbcType="VARCHAR" property="delVmResourceId" />
+    <result column="del_vm_id" jdbcType="VARCHAR" property="delVmId" />
+    <result column="apply_client_id" jdbcType="VARCHAR" property="applyClientId" />
+    <result column="apply_client_name" jdbcType="VARCHAR" property="applyClientName" />
+    <result column="service_name" jdbcType="VARCHAR" property="serviceName" />
+    <result column="del_vm_name" jdbcType="VARCHAR" property="delVmName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_info" jdbcType="LONGVARCHAR" property="createInfo" />
+  </resultMap>
+</mapper>

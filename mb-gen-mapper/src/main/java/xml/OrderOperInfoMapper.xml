@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xml.OrderOperInfoMapper">
+  <resultMap id="BaseResultMap" type="model.OrderOperInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="client_del" jdbcType="VARCHAR" property="clientDel" />
+    <result column="user_deploy" jdbcType="VARCHAR" property="userDeploy" />
+    <result column="user_completion" jdbcType="VARCHAR" property="userCompletion" />
+    <result column="user_chargeback" jdbcType="VARCHAR" property="userChargeback" />
+    <result column="user_del" jdbcType="VARCHAR" property="userDel" />
+    <result column="user_confirm_del" jdbcType="VARCHAR" property="userConfirmDel" />
+    <result column="time_client_del" jdbcType="TIMESTAMP" property="timeClientDel" />
+    <result column="time_del" jdbcType="TIMESTAMP" property="timeDel" />
+    <result column="time_confirm_del" jdbcType="TIMESTAMP" property="timeConfirmDel" />
+    <result column="time_chargeback" jdbcType="TIMESTAMP" property="timeChargeback" />
+    <result column="time_completion" jdbcType="TIMESTAMP" property="timeCompletion" />
+  </resultMap>
+</mapper>
